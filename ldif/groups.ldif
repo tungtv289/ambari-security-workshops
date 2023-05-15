@@ -1,4 +1,4 @@
-dn: cn=marketing,ou=Groups,dc=hortonworks,dc=com
+dn: cn=marketing,ou=Groups,dc=cloud365,dc=local
 cn: marketing
 objectclass: posixgroup
 gidNumber: 75000001
@@ -7,7 +7,7 @@ memberuid: mktg2
 memberuid: mktg3
 memberuid: ali
 
-dn: cn=hr,ou=Groups,dc=hortonworks,dc=com
+dn: cn=hr,ou=Groups,dc=cloud365,dc=local
 cn: hr
 objectclass: posixgroup
 gidNumber: 75000002
@@ -16,7 +16,7 @@ memberuid: hr2
 memberuid: hr3
 memberuid: ali
 
-dn: cn=legal,ou=Groups,dc=hortonworks,dc=com
+dn: cn=legal,ou=Groups,dc=cloud365,dc=local
 cn: legal
 objectclass: posixgroup
 gidNumber: 75000003
@@ -25,7 +25,7 @@ memberuid: legal2
 memberuid: legal3
 memberuid: ali
 
-dn: cn=finance,ou=Groups,dc=hortonworks,dc=com
+dn: cn=finance,ou=Groups,dc=cloud365,dc=local
 cn: finance
 objectclass: posixgroup
 gidNumber: 75000004
@@ -34,7 +34,7 @@ memberuid: finance2
 memberuid: finance3
 memberuid: ali
 
-dn: cn=sales,ou=Groups,dc=hortonworks,dc=com
+dn: cn=sales,ou=Groups,dc=cloud365,dc=local
 cn: sales
 objectclass: posixgroup
 gidNumber: 75000005
@@ -43,7 +43,7 @@ memberuid: sales2
 memberuid: sales3
 memberuid: ali
 
-dn: cn=admins,ou=Groups,dc=hortonworks,dc=com
+dn: cn=admins,ou=Groups,dc=cloud365,dc=local
 cn: admins
 objectclass: posixgroup
 gidNumber: 75000006

@@ -1,14 +1,14 @@
-dn: dc=hortonworks,dc=com
-dc: hortonworks
+dn: dc=cloud365,dc=local
+dc: cloud365
 objectClass: dcObject
 objectClass: organizationalUnit
-ou: hortonworks.com
+ou: cloud365.local
 
-dn: ou=Users,dc=hortonworks,dc=com
+dn: ou=Users,dc=cloud365,dc=local
 ou: Users
 objectClass: organizationalUnit
 
-dn: ou=Groups,dc=hortonworks,dc=com
+dn: ou=Groups,dc=cloud365,dc=local
 ou: Groups
 objectClass: organizationalUnit
 

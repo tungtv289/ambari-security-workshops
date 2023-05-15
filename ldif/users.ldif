@@ -1,4 +1,4 @@
-dn: uid=ali,ou=Users,dc=hortonworks,dc=com
+dn: uid=ali,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -10,9 +10,9 @@ uid: ali
 homedirectory:/home/ali
 uidNumber: 75000010
 gidNumber: 75000005
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=mktg1,ou=Users,dc=hortonworks,dc=com
+dn: uid=mktg1,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -24,9 +24,9 @@ uid: mktg1
 homedirectory:/home/mktg1
 uidNumber: 75000011
 gidNumber: 75000001
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=mktg2,ou=Users,dc=hortonworks,dc=com
+dn: uid=mktg2,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -38,9 +38,9 @@ uid: mktg2
 homedirectory:/home/mktg2
 uidNumber: 75000012
 gidNumber: 75000001
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=mktg3,ou=Users,dc=hortonworks,dc=com
+dn: uid=mktg3,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -52,9 +52,9 @@ uid: mktg3
 homedirectory:/home/mktg3
 uidNumber: 75000013
 gidNumber: 75000001
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=hr1,ou=Users,dc=hortonworks,dc=com
+dn: uid=hr1,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -66,9 +66,9 @@ uid: hr1
 homedirectory:/home/hr1
 uidNumber: 75000014
 gidNumber: 75000002
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=hr2,ou=Users,dc=hortonworks,dc=com
+dn: uid=hr2,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -80,9 +80,9 @@ uid: hr2
 homedirectory:/home/hr2
 uidNumber: 75000015
 gidNumber: 75000002
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=hr3,ou=Users,dc=hortonworks,dc=com
+dn: uid=hr3,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -94,9 +94,9 @@ uid: hr3
 homedirectory:/home/hr3
 uidNumber: 75000016
 gidNumber: 75000002
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=legal1,ou=Users,dc=hortonworks,dc=com
+dn: uid=legal1,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -108,9 +108,9 @@ uid: legal1
 homedirectory:/home/legal1
 uidNumber: 75000017
 gidNumber: 75000003
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=legal2,ou=Users,dc=hortonworks,dc=com
+dn: uid=legal2,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -122,9 +122,9 @@ uid: legal2
 homedirectory:/home/legal2
 uidNumber: 75000018
 gidNumber: 75000003
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=legal3,ou=Users,dc=hortonworks,dc=com
+dn: uid=legal3,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -136,9 +136,9 @@ uid: legal3
 homedirectory:/home/legal3
 uidNumber: 75000019
 gidNumber: 75000003
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=finance1,ou=Users,dc=hortonworks,dc=com
+dn: uid=finance1,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -150,9 +150,9 @@ sn: Smith
 homedirectory:/home/finance1
 uidNumber: 75000020
 gidNumber: 75000004
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=finance2,ou=Users,dc=hortonworks,dc=com
+dn: uid=finance2,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -164,9 +164,9 @@ uid: finance2
 homedirectory:/home/finance2
 uidNumber: 75000021
 gidNumber: 75000004
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=finance3,ou=Users,dc=hortonworks,dc=com
+dn: uid=finance3,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -178,9 +178,9 @@ uid: finance3
 homedirectory:/home/finance3
 uidNumber: 75000022
 gidNumber: 75000004
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=sales1,ou=Users,dc=hortonworks,dc=com
+dn: uid=sales1,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -192,9 +192,9 @@ uid: sales1
 homedirectory:/home/sales1
 uidNumber: 75000023
 gidNumber: 75000005
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=sales2,ou=Users,dc=hortonworks,dc=com
+dn: uid=sales2,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -206,9 +206,9 @@ uid: sales2
 homedirectory:/home/sales2
 uidNumber: 75000024
 gidNumber: 75000005
-userPassword:hortonworks
+userPassword:cloud365
 
-dn: uid=sales3,ou=Users,dc=hortonworks,dc=com
+dn: uid=sales3,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -220,7 +220,7 @@ uid: sales3
 homedirectory:/home/sales3
 uidNumber: 75000025
 gidNumber: 75000005
-userPassword:hortonworks
+userPassword:cloud365
 
 irangeradmin
 75000006
@@ -228,7 +228,7 @@ irangeradmin
 xapolicymgr
 
 
-dn: uid=rangeradmin,ou=Users,dc=hortonworks,dc=com
+dn: uid=rangeradmin,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -240,10 +240,10 @@ uid: rangeradmin
 homedirectory:/home/rangeradmin
 uidNumber: 75000026
 gidNumber: 75000006
-userPassword:hortonworks
+userPassword:cloud365
 
 
-dn: uid=xapolicymgr,ou=Users,dc=hortonworks,dc=com
+dn: uid=xapolicymgr,ou=Users,dc=cloud365,dc=local
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -255,6 +255,6 @@ uid: xapolicymgr
 homedirectory:/home/xapolicymgr
 uidNumber: 75000027
 gidNumber: 75000006
-userPassword:hortonworks
+userPassword:cloud365
 
 

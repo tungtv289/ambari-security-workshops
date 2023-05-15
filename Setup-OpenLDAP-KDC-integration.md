@@ -55,17 +55,17 @@ service rsyslog restart
 
 service slapd start
 
-ldapwhoami -D cn=Manager,dc=hortonworks,dc=com -w passwd
+ldapwhoami -D cn=Manager,dc=cloud365,dc=local -w 123
 
-wget https://github.com/abajwa-hw/security-workshops/raw/master/ldif/base.ldif
-wget https://github.com/abajwa-hw/security-workshops/raw/master/ldif/groups.ldif
-wget https://github.com/abajwa-hw/security-workshops/raw/master/ldif/users.ldif
+wget https://github.com/tungtv289/ambari-security-workshops/raw/tungtv289/ldif/base.ldif
+wget https://github.com/tungtv289/ambari-security-workshops/raw/tungtv289/ldif/groups.ldif
+wget https://github.com/tungtv289/ambari-security-workshops/raw/tungtv289/ldif/users.ldif
 
-ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=hortonworks,dc=com" -f base.ldif -w passwd
-ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=hortonworks,dc=com" -f groups.ldif -w passwd
-ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=hortonworks,dc=com" -f users.ldif -w passwd
+ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=cloud365,dc=local" -f base.ldif -w passwd
+ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=cloud365,dc=local" -f groups.ldif -w passwd
+ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=cloud365,dc=local" -f users.ldif -w passwd
 
-ldapsearch -h localhost -D "cn=Manager,dc=hortonworks,dc=com" -w passwd -b "dc=hortonworks,dc=com"
+ldapsearch -h localhost -D "cn=Manager,dc=cloud365,dc=local" -w passwd -b "dc=cloud365,dc=local"
 ```
 
 
