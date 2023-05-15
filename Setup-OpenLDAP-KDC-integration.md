@@ -1,17 +1,22 @@
 #### Configure OpenLDAP to talk to KDC
 
+LDAP [Phần 1] – Hướng dẫn cài đặt LDAP trên CentOS 7 https://news.cloud365.vn/huong-dan-cai-dat-ldap-tren-centos-7/
+Installing Kerberos on Redhat 7 https://gist.github.com/ashrithr/4767927948eca70845db
+
 - (Optional) First install OpenLDAP (not needed if already installed)
 ```
-export LDAP_PASSWORD=hortonworks
-export LDAP_ADMIN_USER=admin
-export DOMAIN=hortonworks
+export LDAP_PASSWORD=123
+export LDAP_ADMIN_USER=Manager
+export DOMAIN=lakehouse
 
+
+# slappasswd 123
 
 yum -y install openldap-servers openldap-clients krb5-server-ldap phpldapadmin
 vi /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{2\}bdb.ldif 
-	olcSuffix: dc=hortonworks,dc=com
-	olcRootDN: cn=Manager,dc=hortonworks,dc=com
-	olcRootPW: {SSHA}pW8s+vP2UbJxSa4Obts5h2iQ2qy/tmGr
+	olcSuffix: dc=lakehouse,dc=com
+	olcRootDN: cn=Manager,dc=lakehouse,dc=com
+	olcRootPW: {SSHA}p8MC0Oikbm+HVOotK+Ur1URzabz1DXJF
 	
 
 cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
@@ -40,7 +45,7 @@ SLAPD_SHUTDOWN_TIMEOUT=15
 
 vi /etc/openldap/ldap.conf
 #add to bottom
-BASE dc=hortonworks,dc=com
+BASE dc=lakehouse,dc=com
 URI ldap://localhost
 TLS_REQCERT never
 
@@ -55,33 +60,39 @@ service rsyslog restart
 
 service slapd start
 
-ldapwhoami -D cn=Manager,dc=cloud365,dc=local -w 123
+ldapwhoami -D cn=Manager,dc=lakehouse,dc=com -w 123
 
 wget https://github.com/tungtv289/ambari-security-workshops/raw/tungtv289/ldif/base.ldif
 wget https://github.com/tungtv289/ambari-security-workshops/raw/tungtv289/ldif/groups.ldif
 wget https://github.com/tungtv289/ambari-security-workshops/raw/tungtv289/ldif/users.ldif
 
-ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=cloud365,dc=local" -f base.ldif -w passwd
-ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=cloud365,dc=local" -f groups.ldif -w passwd
-ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=cloud365,dc=local" -f users.ldif -w passwd
+# Fixed(1): "ldap_add: Invalid syntax (21) additional info: objectClass: value #0 invalid per syntax"
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+##################
+ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=lakehouse,dc=com" -f base.ldif -w 123
+ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=lakehouse,dc=com" -f groups.ldif -w 123
+ldapadd -H ldap://localhost:389 -x -a -D "cn=Manager,dc=lakehouse,dc=com" -f users.ldif -w 123
+##################
 
-ldapsearch -h localhost -D "cn=Manager,dc=cloud365,dc=local" -w passwd -b "dc=cloud365,dc=local"
+ldapsearch -h localhost -D "cn=Manager,dc=lakehouse,dc=com" -w 123 -b "dc=lakehouse,dc=com"
 ```
 
 
 - Next install KDC 
 ```
-export KDC_REALM=HORTONWORKS.COM
-export KDC_HOST=sandbox.hortonworks.com
-export KDC_DOMAIN=hortonworks.com
+export KDC_REALM=LAKEHOUSE.COM
+export KDC_HOST=ldap
+export KDC_DOMAIN=lakehouse.com
 
 #export KDC_ADMIN=admin/admin
-export KDC_PASSWORD=hortonworks
-export KDC_ADMINPASSWORD=hortonworks
+export KDC_PASSWORD=DfAr@e#$DFSyA9DD
+export KDC_ADMINPASSWORD=DfAr@e#$DFSyA9DD
 export TEMP_DIR=/root/ldap
 
-export LDAP_ADMIN_USER=admin
-export KDC_DOMAIN_DN="dc=hortonworks,dc=com"
+export LDAP_ADMIN_USER=Manager
+export KDC_DOMAIN_DN="dc=lakehouse,dc=com"
 
 #on each node
 yum install -y krb5-workstation 
@@ -152,15 +163,19 @@ sed -i "s/Manager/$LDAP_ADMIN_USER/g" /etc/krb5.conf
 
 #create KDC entries in LDAP
 
-kdb5_ldap_util -D "cn=$LDAP_ADMIN_USER,dc=hortonworks,dc=com" create -subtrees "ou=kerberos,dc=hortonworks,dc=com" -r HORTONWORKS.COM -s -H ldapi:///
-#kdb5_ldap_util -D "cn=$LDAP_ADMIN_USER,dc=hortonworks,dc=com" create -subtrees "dc=hortonworks,dc=com" -r HORTONWORKS.COM -s -H ldapi:///
+kdb5_ldap_util -D "cn=$LDAP_ADMIN_USER,dc=lakehouse,dc=com" create -subtrees "ou=kerberos,dc=lakehouse,dc=com" -r LAKEHOUSE.COM -s -H ldapi:///
+# Fixed(2): kdb5_ldap_util: Kerberos Container create FAILED: Object class violation while creating realm 'LAKEHOUSE.COM' -> change to cn=kerberos,dc=lakehouse,dc=com and modify /etc/krb5.conf(ldap_kerberos_container_dn)
+
+kdb5_ldap_util -D "cn=$LDAP_ADMIN_USER,dc=lakehouse,dc=com" create -subtrees "cn=kerberos,dc=lakehouse,dc=com" -r LAKEHOUSE.COM -s -H ldap://localhost:389
+
+#kdb5_ldap_util -D "cn=$LDAP_ADMIN_USER,dc=lakehouse,dc=com" create -subtrees "dc=lakehouse,dc=com" -r LAKEHOUSE.COM -s -H ldapi:///
 
 
-ldapsearch -LLLY EXTERNAL -H ldapi:/// -b ou=kerberos,dc=hortonworks,dc=com dn
+ldapsearch -LLLY EXTERNAL -H ldapi:/// -b cn=kerberos,dc=lakehouse,dc=com dn
 
 mkdir /etc/krb5.d
 
-kdb5_ldap_util -D "cn=$LDAP_ADMIN_USER,dc=hortonworks,dc=com" stashsrvpw -f /etc/krb5.d/stash.keyfile "cn=$LDAP_ADMIN_USER,dc=hortonworks,dc=com"
+kdb5_ldap_util -D "cn=$LDAP_ADMIN_USER,dc=lakehouse,dc=com" stashsrvpw -f /etc/krb5.d/stash.keyfile "cn=$LDAP_ADMIN_USER,dc=lakehouse,dc=com"
 
 cat /etc/krb5.d/stash.keyfile
 
@@ -169,13 +184,14 @@ touch /var/log/krb5kdc.log /var/log/kadmind.log
 
 - Setup servie logs for KDC services
 ```
-echo "# Send kadmind(8) logs to /var/log/kadmind.log" >> /etc/rsyslog.conf
-echo "if $programname == 'kadmind' then /var/log/kadmind.log" >> /etc/rsyslog.conf
-echo "& ~" >> /etc/rsyslog.conf
+vi /etc/rsyslog.conf
+# Send kadmind(8) logs to /var/log/kadmind.log
+if $programname == 'kadmind' then /var/log/kadmind.log
+& ~
 
-echo "# Send krb5kdc(8) logs to /var/log/krb5kdc.log" >> /etc/rsyslog.conf
-echo "if $programname == 'krb5kdc' then /var/log/krb5kdc.log" >> /etc/rsyslog.conf
-echo "& ~" >> /etc/rsyslog.conf
+# Send krb5kdc(8) logs to /var/log/krb5kdc.log
+if $programname == 'krb5kdc' then /var/log/krb5kdc.log
+& ~
 
 service rsyslog restart
 ```
@@ -191,8 +207,8 @@ chkconfig kadmin on
 - Add principal to business user
 ```
 kadmin.local
-addprinc ali@HORTONWORKS.COM
-#hortonworks
+addprinc ali@LAKEHOUSE.COM
+#lakehouse
 exit
 ```
 
