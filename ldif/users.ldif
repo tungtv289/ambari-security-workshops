@@ -1,4 +1,4 @@
-dn: uid=ali,ou=Users,dc=cloud365,dc=local
+dn: uid=ali,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -12,7 +12,7 @@ uidNumber: 75000010
 gidNumber: 75000005
 userPassword:cloud365
 
-dn: uid=mktg1,ou=Users,dc=cloud365,dc=local
+dn: uid=mktg1,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -26,7 +26,7 @@ uidNumber: 75000011
 gidNumber: 75000001
 userPassword:cloud365
 
-dn: uid=mktg2,ou=Users,dc=cloud365,dc=local
+dn: uid=mktg2,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -40,7 +40,7 @@ uidNumber: 75000012
 gidNumber: 75000001
 userPassword:cloud365
 
-dn: uid=mktg3,ou=Users,dc=cloud365,dc=local
+dn: uid=mktg3,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -54,7 +54,7 @@ uidNumber: 75000013
 gidNumber: 75000001
 userPassword:cloud365
 
-dn: uid=hr1,ou=Users,dc=cloud365,dc=local
+dn: uid=hr1,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -68,7 +68,7 @@ uidNumber: 75000014
 gidNumber: 75000002
 userPassword:cloud365
 
-dn: uid=hr2,ou=Users,dc=cloud365,dc=local
+dn: uid=hr2,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -82,7 +82,7 @@ uidNumber: 75000015
 gidNumber: 75000002
 userPassword:cloud365
 
-dn: uid=hr3,ou=Users,dc=cloud365,dc=local
+dn: uid=hr3,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -96,7 +96,7 @@ uidNumber: 75000016
 gidNumber: 75000002
 userPassword:cloud365
 
-dn: uid=legal1,ou=Users,dc=cloud365,dc=local
+dn: uid=legal1,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -110,7 +110,7 @@ uidNumber: 75000017
 gidNumber: 75000003
 userPassword:cloud365
 
-dn: uid=legal2,ou=Users,dc=cloud365,dc=local
+dn: uid=legal2,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -124,7 +124,7 @@ uidNumber: 75000018
 gidNumber: 75000003
 userPassword:cloud365
 
-dn: uid=legal3,ou=Users,dc=cloud365,dc=local
+dn: uid=legal3,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -138,7 +138,7 @@ uidNumber: 75000019
 gidNumber: 75000003
 userPassword:cloud365
 
-dn: uid=finance1,ou=Users,dc=cloud365,dc=local
+dn: uid=finance1,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -152,7 +152,7 @@ uidNumber: 75000020
 gidNumber: 75000004
 userPassword:cloud365
 
-dn: uid=finance2,ou=Users,dc=cloud365,dc=local
+dn: uid=finance2,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -166,7 +166,7 @@ uidNumber: 75000021
 gidNumber: 75000004
 userPassword:cloud365
 
-dn: uid=finance3,ou=Users,dc=cloud365,dc=local
+dn: uid=finance3,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -180,7 +180,7 @@ uidNumber: 75000022
 gidNumber: 75000004
 userPassword:cloud365
 
-dn: uid=sales1,ou=Users,dc=cloud365,dc=local
+dn: uid=sales1,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -194,7 +194,7 @@ uidNumber: 75000023
 gidNumber: 75000005
 userPassword:cloud365
 
-dn: uid=sales2,ou=Users,dc=cloud365,dc=local
+dn: uid=sales2,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -208,7 +208,7 @@ uidNumber: 75000024
 gidNumber: 75000005
 userPassword:cloud365
 
-dn: uid=sales3,ou=Users,dc=cloud365,dc=local
+dn: uid=sales3,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -228,7 +228,7 @@ irangeradmin
 xapolicymgr
 
 
-dn: uid=rangeradmin,ou=Users,dc=cloud365,dc=local
+dn: uid=rangeradmin,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
@@ -243,7 +243,7 @@ gidNumber: 75000006
 userPassword:cloud365
 
 
-dn: uid=xapolicymgr,ou=Users,dc=cloud365,dc=local
+dn: uid=xapolicymgr,ou=Users,dc=lakehouse,dc=com
 objectclass:top
 objectclass:person
 objectclass:organizationalPerson
